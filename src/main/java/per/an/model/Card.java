@@ -10,7 +10,15 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
 
-    private String name;
+    private String title;
+
+    @ManyToOne
+    private Type type;
+
+    private String imageLocalization;
+
+    @ManyToOne
+    private Border imageBorder;
 
     public long getId() {
         return id;
@@ -20,11 +28,35 @@ public class Card {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public String getImageLocalization() {
+        return imageLocalization;
+    }
+
+    public void setImageLocalization(String imageLocalization) {
+        this.imageLocalization = imageLocalization;
+    }
+
+    public Border getImageBorder() {
+        return imageBorder;
+    }
+
+    public void setImageBorder(Border imageBorder) {
+        this.imageBorder = imageBorder;
     }
 }

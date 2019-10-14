@@ -10,13 +10,17 @@ import javax.transaction.Transactional;
 @ApplicationScoped
 public class CardService {
 
+    private CardRepository cardRepository;
+
     @Inject
-    CardRepository cardRepository;
+    public CardService(CardRepository cardRepository) {
+        this.cardRepository = cardRepository;
+    }
 
     @Transactional
     public void createCard(String cardName) {
         Card card = new Card();
-        card.setName(cardName);
+        card.setTitle(cardName);
         cardRepository.persist(card);
     }
 }
